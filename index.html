@@ -7,7 +7,7 @@
 <meta name="description" content="D'Lusha's — Le Cordon Bleu craft brought home to the neighbourhood. Fresh, honest food on the promenade in Ganei Tikva. Vegan, gluten-free & no-added-sugar options. It's All Good." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Heebo:wght@300;400;500;700&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Assistant:wght@300;400;500;700&family=Frank+Ruhl+Libre:wght@400;700;900&family=Suez+One&display=swap" rel="stylesheet" />
 <style>
   :root {
     --sage: #4A7C6F;
@@ -35,10 +35,13 @@
 
   /* When Hebrew is active, body switches to Hebrew-friendly fonts */
   html[lang="he"] {
-    --sans: 'Heebo', sans-serif;
+    --sans: 'Assistant', sans-serif;
     --serif: 'Frank Ruhl Libre', serif;
     --editorial: 'Frank Ruhl Libre', serif;
   }
+
+  /* Suez One — heavy heritage serif — for the big Hebrew hero headline only */
+  html[lang="he"] .hero h1 { font-family: 'Suez One', serif; font-weight: 400; }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 

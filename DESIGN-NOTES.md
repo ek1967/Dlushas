@@ -24,8 +24,8 @@ The split we built into the site:
 How it works in the prototype:
 - A small **EN / עב** toggle sits in the nav. It swaps every piece of copy and
   flips the whole page to right-to-left for Hebrew (`dir="rtl"`), and even
-  switches to Hebrew-appropriate fonts (Heebo + Frank Ruhl Libre) so the Hebrew
-  doesn't look like an afterthought.
+  switches to Hebrew-appropriate fonts so the Hebrew doesn't look like an
+  afterthought.
 - The choice is remembered between visits.
 - **Default is English** (the brand layer), per the strategy — but a Hebrew
   speaker is one tap from feeling at home.
@@ -33,6 +33,18 @@ How it works in the prototype:
 > Note: the Hebrew copy in the prototype is my draft and should be reviewed by
 > Hila — the brand book is right that Hebrew must sound like *her*, never like
 > Google Translate.
+
+### The type system (final)
+
+| Role | English | Hebrew |
+|---|---|---|
+| Big hero headline | Playfair Display (900) | **Suez One** — heavy heritage serif, extra warmth |
+| Headlines / menu names | Playfair Display | **Frank Ruhl Libre** |
+| Editorial / descriptions | Cormorant Garamond *(italic)* | Frank Ruhl Libre |
+| Body / labels / buttons / UI | DM Sans | **Assistant** |
+
+All are free Google Fonts. Menu item names stay in English (Playfair) in both
+languages — they're part of the brand identity.
 
 ---
 

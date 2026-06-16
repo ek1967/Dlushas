@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D'Lusha's — Hebrew Font Comparison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Suez+One&family=Assistant:wght@300;400;500;700&family=Heebo:wght@300;400;500;700&family=Rubik:wght@300;400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sage:#4A7C6F; --sage-light:#7BAE9F; --sage-pale:#B8D4CC; --sage-wash:#E8F2EF;
+    --cream:#F5F0E8; --warm-white:#FDFAF5; --bark:#8B6F4E; --wheat:#D4B896;
+    --charcoal:#2C3A35; --charcoal-soft:#4A5550; --gold:#C9A84C; --sand:#E8D5B7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--warm-white);color:var(--charcoal);font-family:'Assistant',sans-serif;line-height:1.6;padding:48px 5vw 80px;}
+  .topbar{max-width:1100px;margin:0 auto 40px;text-align:center;}
+  .topbar .mark{font-family:'Playfair Display',serif;font-weight:900;font-size:34px;letter-spacing:-.02em;color:var(--charcoal);direction:ltr;}
+  .topbar .mark span{color:var(--sage);font-style:italic;}
+  .topbar h1{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:30px;margin-top:14px;color:var(--charcoal);}
+  .topbar p{color:var(--charcoal-soft);max-width:60ch;margin:12px auto 0;font-size:16px;}
+  .note{direction:ltr;background:var(--sage-wash);border:1px solid var(--sage-pale);border-radius:14px;padding:16px 20px;max-width:1100px;margin:0 auto 40px;font-size:14px;color:var(--charcoal-soft);text-align:left;}
+  .note b{color:var(--sage);}
+
+  .grid{max-width:1100px;margin:0 auto;display:grid;gap:28px;}
+  .card{background:var(--cream);border:1px solid var(--sand);border-radius:22px;overflow:hidden;}
+  .card.rec{border:2px solid var(--sage);}
+  .card-head{background:var(--charcoal);color:var(--cream);padding:18px 26px;display:flex;justify-content:space-between;align-items:center;direction:ltr;}
+  .card-head .name{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;}
+  .card-head .pair{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-light);}
+  .badge{font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:var(--sage);color:#fff;padding:5px 12px;border-radius:100px;}
+  .card-body{padding:34px 32px;}
+
+  /* the headline serif is ALWAYS Frank Ruhl Libre */
+  .h-serif{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:34px;line-height:1.15;color:var(--charcoal);margin-bottom:6px;}
+  .menu-name-en{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;color:var(--charcoal);direction:ltr;}
+  .price{color:var(--gold);font-family:'Frank Ruhl Libre',serif;font-weight:700;}
+
+  /* per-card body font is the variable being tested */
+  .opt-assistant .body-font{font-family:'Assistant',sans-serif;}
+  .opt-heebo .body-font{font-family:'Heebo',sans-serif;}
+  .opt-rubik .body-font{font-family:'Rubik',sans-serif;}
+
+  .desc{font-size:18px;font-weight:300;color:var(--charcoal-soft);line-height:1.7;margin:14px 0 22px;}
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--sage-wash);max-width:420px;font-size:17px;}
+  .row .time{color:var(--charcoal-soft);font-weight:300;}
+  .pills{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0;}
+  .pill{font-size:13px;font-weight:500;padding:6px 14px;border-radius:100px;background:var(--sage-wash);color:var(--sage);border:1px solid var(--sage-pale);}
+  .btn{display:inline-block;background:var(--sage);color:var(--cream);font-weight:500;font-size:15px;padding:14px 28px;border-radius:100px;letter-spacing:.03em;}
+  .small{font-size:13px;color:var(--charcoal-soft);margin-top:20px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="mark">D'Lu<span>sha's</span></div>
+  <h1>שלוש אפשרויות לגופן העברי</h1>
+  <p>הכותרת בכל הכרטיסים היא <b style="font-family:'Frank Ruhl Libre',serif">Frank Ruhl Libre</b> — מה שמשתנה הוא רק גופן גוף הטקסט. אותו תוכן בדיוק בכל אחד, כדי שתוכלו להשוות.</p>
+</div>
+
+<div class="note">
+  Headlines stay <b>Frank Ruhl Libre</b> in all three. Only the body font changes:
+  <b>Assistant</b> (warm · my pick) vs <b>Heebo</b> (clean/current) vs <b>Rubik</b> (rounded).
+  Same Hebrew copy in each card. Open on desktop for the truest read.
+</div>
+
+<div class="grid">
+
+  <!-- ASSISTANT -->
+  <div class="card rec opt-assistant">
+    <div class="card-head">
+      <span class="name">Frank Ruhl Libre + Assistant</span>
+      <span style="display:flex;gap:10px;align-items:center;"><span class="pair">warm · humanist</span><span class="badge">Recommended</span></span>
+    </div>
+    <div class="card-body">
+      <div class="menu-name-en">Berry Smooth <span class="price">₪40</span></div>
+      <div class="h-serif">קערית הסמודי שהתחילה הכל</div>
+      <p class="desc body-font">אסאי, פירות יער, בננה וחלב שקדים — מוכתר בפצפוצי אורז מלא, אוכמניות, קוקוס קלוי ונגיעת דבש טבעי. פשוט, נעשה כמו שצריך.</p>
+      <div class="pills body-font"><span class="pill">טבעוני</span><span class="pill">ללא גלוטן</span><span class="pill">ללא סוכר מוסף</span></div>
+      <div class="row body-font"><span>ראשון–חמישי</span><span class="time">7:00 – 14:00</span></div>
+      <div class="row body-font"><span>שישי</span><span class="time">7:00 – 13:00</span></div>
+      <p class="small body-font">חפשו את העגלה על הטיילת בגני תקווה, ליד מגרש הכדורגל.</p>
+      <div style="margin-top:22px;"><span class="btn body-font">איפה אנחנו היום</span></div>
+    </div>
+  </div>
+
+  <!-- HEEBO -->
+  <div class="card opt-heebo">
+    <div class="card-head">
+      <span class="name">Frank Ruhl Libre + Heebo</span>
+      <span class="pair">clean · geometric · current</span>
+    </div>
+    <div class="card-body">
+      <div class="menu-name-en">Berry Smooth <span class="price">₪40</span></div>
+      <div class="h-serif">קערית הסמודי שהתחילה הכל</div>
+      <p class="desc body-font">אסאי, פירות יער, בננה וחלב שקדים — מוכתר בפצפוצי אורז מלא, אוכמניות, קוקוס קלוי ונגיעת דבש טבעי. פשוט, נעשה כמו שצריך.</p>
+      <div class="pills body-font"><span class="pill">טבעוני</span><span class="pill">ללא גלוטן</span><span class="pill">ללא סוכר מוסף</span></div>
+      <div class="row body-font"><span>ראשון–חמישי</span><span class="time">7:00 – 14:00</span></div>
+      <div class="row body-font"><span>שישי</span><span class="time">7:00 – 13:00</span></div>
+      <p class="small body-font">חפשו את העגלה על הטיילת בגני תקווה, ליד מגרש הכדורגל.</p>
+      <div style="margin-top:22px;"><span class="btn body-font">איפה אנחנו היום</span></div>
+    </div>
+  </div>
+
+  <!-- RUBIK -->
+  <div class="card opt-rubik">
+    <div class="card-head">
+      <span class="name">Frank Ruhl Libre + Rubik</span>
+      <span class="pair">rounded · friendly</span>
+    </div>
+    <div class="card-body">
+      <div class="menu-name-en">Berry Smooth <span class="price">₪40</span></div>
+      <div class="h-serif">קערית הסמודי שהתחילה הכל</div>
+      <p class="desc body-font">אסאי, פירות יער, בננה וחלב שקדים — מוכתר בפצפוצי אורז מלא, אוכמניות, קוקוס קלוי ונגיעת דבש טבעי. פשוט, נעשה כמו שצריך.</p>
+      <div class="pills body-font"><span class="pill">טבעוני</span><span class="pill">ללא גלוטן</span><span class="pill">ללא סוכר מוסף</span></div>
+      <div class="row body-font"><span>ראשון–חמישי</span><span class="time">7:00 – 14:00</span></div>
+      <div class="row body-font"><span>שישי</span><span class="time">7:00 – 13:00</span></div>
+      <p class="small body-font">חפשו את העגלה על הטיילת בגני תקווה, ליד מגרש הכדורגל.</p>
+      <div style="margin-top:22px;"><span class="btn body-font">איפה אנחנו היום</span></div>
+    </div>
+  </div>
+
+  <!-- BONUS: SUEZ ONE for big display moments -->
+  <div class="card opt-assistant">
+    <div class="card-head">
+      <span class="name">Bonus: Suez One (display only)</span>
+      <span class="pair">heavy heritage serif</span>
+    </div>
+    <div class="card-body">
+      <div style="font-family:'Suez One',serif;font-size:48px;line-height:1.1;color:var(--charcoal);margin-bottom:8px;">אוכל אמיתי.<br>חום של בית.</div>
+      <p class="desc body-font" style="margin-top:14px;">אופציה לכותרות הענק בלבד (כמו ה-Hero) — Suez One נותן נוכחות וחום של דפוס ישן. נשתמש בו במשורה, לצד Frank Ruhl Libre לכותרות הרגילות.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

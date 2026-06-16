@@ -736,6 +736,52 @@
     .menu-item { grid-template-columns: 64px 1fr; }
     .menu-thumb { width: 64px; height: 64px; }
   }
+
+  /* ---------- MENU (list style) ---------- */
+  .menu-cat { margin-top: 54px; }
+  .menu-cat-title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--charcoal);
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--sage-pale);
+    margin-bottom: 22px;
+  }
+  .menu-cat-title .he { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--sage); }
+  .menu-cat-title .cat-price { margin-left: auto; font-size: 18px; color: var(--gold); }
+  html[dir="rtl"] .menu-cat-title .cat-price { margin-left: 0; margin-right: auto; }
+  .menu-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 52px; }
+  .m-row { display: flex; align-items: baseline; gap: 10px; }
+  .m-name { font-family: var(--serif); font-weight: 700; font-size: 18px; color: var(--charcoal); }
+  .m-dots { flex: 1; border-bottom: 1px dotted var(--sage-pale); position: relative; top: -4px; min-width: 16px; }
+  .m-price { font-family: var(--serif); font-weight: 700; font-size: 16px; color: var(--gold); white-space: nowrap; }
+  .m-desc { font-size: 13px; font-weight: 300; color: var(--charcoal-soft); line-height: 1.5; margin-top: 4px; }
+  .menu-legend { margin-top: 52px; padding-top: 22px; border-top: 1px solid var(--sage-pale); display: flex; flex-wrap: wrap; gap: 14px 28px; font-size: 13px; color: var(--charcoal-soft); align-items: center; }
+  .menu-legend .key { font-weight: 700; color: var(--sage); }
+  .menu-note { margin-top: 14px; font-family: var(--editorial); font-style: italic; font-size: 17px; color: var(--bark); }
+
+  /* ---------- VISIT / MAP ---------- */
+  .visit { background: var(--cream); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+  .visit-map { border-radius: 20px; overflow: hidden; border: 1px solid var(--sand); box-shadow: 0 18px 40px -20px rgba(44,58,53,0.3); }
+  .visit-map iframe { width: 100%; height: 420px; border: 0; display: block; }
+
+  @media (max-width: 900px) {
+    .menu-list { grid-template-columns: 1fr; }
+    .visit-grid { grid-template-columns: 1fr; gap: 36px; }
+    .visit-map iframe { height: 320px; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 64px 6vw; }
+    .nav-logo { font-size: 22px; }
+    .logo-mark { width: 28px; height: 28px; }
+    .menu-cat-title { font-size: 22px; flex-wrap: wrap; gap: 8px; }
+    .hero h1 { max-width: 100%; }
+  }
 </style>
 </head>
 <body>
@@ -767,8 +813,8 @@
       <button id="enBtn" class="active" onclick="setLang('en')">EN</button>
       <button id="heBtn" onclick="setLang('he')">עב</button>
     </div>
-    <a href="#find" class="btn btn-primary nav-cta">
-      <span data-lang-en>Find the truck</span><span data-lang-he>איפה אנחנו</span>
+    <a href="#visit" class="btn btn-primary nav-cta">
+      <span data-lang-en>Visit us</span><span data-lang-he>בקרו אותנו</span>
     </a>
     <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -792,7 +838,7 @@
     </p>
     <div class="hero-actions">
       <a href="#menu" class="btn btn-primary"><span data-lang-en>See the menu</span><span data-lang-he>לתפריט</span></a>
-      <a href="#find" class="btn btn-ghost"><span data-lang-en>Find us today</span><span data-lang-he>איפה אנחנו היום</span></a>
+      <a href="#visit" class="btn btn-ghost"><span data-lang-en>Where to find us</span><span data-lang-he>איפה אנחנו</span></a>
     </div>
   </div>
 </header>
@@ -807,131 +853,106 @@
   </div>
 </div>
 
-<!-- ===== FIND THE TRUCK ===== -->
-<section class="find" id="find">
-  <div class="wrap find-grid">
-    <div class="reveal">
-      <p class="kicker"><span data-lang-en>Find the truck</span><span data-lang-he>איפה אנחנו</span></p>
-      <h2 class="h-section"><span data-lang-en>On the promenade,<br>most mornings.</span><span data-lang-he class="block">על הטיילת,<br>רוב הבקרים.</span></h2>
-      <p class="lede"><span data-lang-en>Look for the cart by the Ganei Tikva promenade — near the mini-pitch. Hours shift with the seasons, so check before you come.</span><span data-lang-he>חפשו את העגלה בטיילת של גני תקווה — ליד מגרש הכדורגל. השעות משתנות עם העונה, אז כדאי לבדוק לפני שמגיעים.</span></p>
-
-      <div class="hours-list">
-        <div class="hours-row" data-day="0"><span class="day"><span data-lang-en>Sunday</span><span data-lang-he>ראשון</span></span><span class="time">7:00 – 14:00</span></div>
-        <div class="hours-row" data-day="1"><span class="day"><span data-lang-en>Monday</span><span data-lang-he>שני</span></span><span class="time">7:00 – 14:00</span></div>
-        <div class="hours-row" data-day="2"><span class="day"><span data-lang-en>Tuesday</span><span data-lang-he>שלישי</span></span><span class="time">7:00 – 14:00</span></div>
-        <div class="hours-row" data-day="3"><span class="day"><span data-lang-en>Wednesday</span><span data-lang-he>רביעי</span></span><span class="time">7:00 – 14:00</span></div>
-        <div class="hours-row" data-day="4"><span class="day"><span data-lang-en>Thursday</span><span data-lang-he>חמישי</span></span><span class="time">7:00 – 15:00</span></div>
-        <div class="hours-row" data-day="5"><span class="day"><span data-lang-en>Friday</span><span data-lang-he>שישי</span></span><span class="time">7:00 – 13:00</span></div>
-        <div class="hours-row closed" data-day="6"><span class="day"><span data-lang-en>Saturday</span><span data-lang-he>שבת</span></span><span class="time"><span data-lang-en>Closed</span><span data-lang-he>סגור</span></span></div>
-      </div>
-
-      <div class="find-meta">
-        <a href="https://maps.app.goo.gl/t1yftgwzrRT5xWraA" target="_blank" rel="noopener" class="btn btn-dark"><span data-lang-en>Get directions</span><span data-lang-he>נווטו אלינו</span></a>
-        <a href="https://www.instagram.com/dlushascoffee/" target="_blank" rel="noopener" class="btn" style="border:1px solid var(--sage-pale); color:var(--sage);"><span data-lang-en>Daily specials on Instagram</span><span data-lang-he>המנות של היום באינסטגרם</span></a>
-      </div>
-    </div>
-
-    <a href="https://maps.app.goo.gl/t1yftgwzrRT5xWraA" target="_blank" rel="noopener" class="find-card reveal" aria-label="Get directions to D'Lusha's on Google Maps">
-      <div class="find-map">
-        <div class="find-pin">📍</div>
-        <span class="map-addr"><span data-lang-en>The promenade · Ganei Tikva</span><span data-lang-he>הטיילת · גני תקווה</span></span>
-        <span class="map-cta"><span data-lang-en>Tap for directions</span><span data-lang-he>הקישו לניווט</span></span>
-      </div>
-    </a>
-  </div>
-</section>
-
 <!-- ===== MENU ===== -->
 <section class="menu" id="menu">
   <div class="wrap">
     <p class="kicker reveal"><span data-lang-en>The Menu</span><span data-lang-he>התפריט</span></p>
-    <h2 class="h-section reveal"><span data-lang-en>Fresh from our kitchen<br>to your hands.</span><span data-lang-he class="block">היישר מהמטבח<br>אל הידיים שלכם.</span></h2>
+    <h2 class="h-section reveal"><span data-lang-en>Carefully chosen,<br>made in small batches.</span><span data-lang-he class="block">נבחר בקפידה,<br>מיוצר בכמויות קטנות.</span></h2>
+    <p class="lede reveal"><span data-lang-en>Local products from small businesses. Organic, fresh-roasted coffee and our own plant milks with no added sugar.</span><span data-lang-he>מוצרים מעסקים מקומיים קטנים. קפה אורגני קלוי טרי ותחליפי החלב שלנו, ללא תוספת סוכר.</span></p>
 
-    <div class="menu-tabs reveal">
-      <button class="menu-tab active"><span data-lang-en>Signatures</span><span data-lang-he>המנות שלנו</span></button>
-      <button class="menu-tab"><span data-lang-en>Smoothie Bowls</span><span data-lang-he>קעריות סמודי</span></button>
-      <button class="menu-tab"><span data-lang-en>Sandwiches</span><span data-lang-he>כריכים</span></button>
-      <button class="menu-tab"><span data-lang-en>Coffee &amp; Drinks</span><span data-lang-he>קפה ומשקאות</span></button>
-    </div>
-
-    <div class="menu-grid">
-      <!-- Item -->
-      <div class="menu-item reveal">
-        <div class="menu-thumb"></div>
-        <div>
-          <div class="menu-item-head">
-            <h3 class="menu-name">Berry Smooth</h3>
-            <span class="menu-price">₪40</span>
-          </div>
-          <p class="menu-desc"><span data-lang-en>Açaí, mixed berries, banana &amp; almond milk — crowned with whole-grain rice pops, fresh blueberries, toasted coconut and a kiss of raw honey.</span><span data-lang-he>אסאי, פירות יער, בננה וחלב שקדים — מוכתר בפצפוצי אורז מלא, אוכמניות, קוקוס קלוי ונגיעת דבש טבעי.</span></p>
-          <div class="pills"><span class="pill">Vegan</span><span class="pill">Gluten Free</span><span class="pill">No Added Sugar</span></div>
-        </div>
-      </div>
-      <!-- Item -->
-      <div class="menu-item reveal">
-        <div class="menu-thumb"></div>
-        <div>
-          <div class="menu-item-head">
-            <h3 class="menu-name">Heaven Avocado</h3>
-            <span class="menu-price">₪38</span>
-          </div>
-          <p class="menu-desc"><span data-lang-en>Organic avocado meets Ethiopian tahini, roasted garlic and a handful of fresh leaves on sourdough. The kind of sandwich that makes you pause mid-bite.</span><span data-lang-he>אבוקדו אורגני פוגש טחינה אתיופית, שום קלוי וחופן עלים טריים על מחמצת. הכריך שגורם לכם לעצור באמצע ביס.</span></p>
-          <div class="pills"><span class="pill">Vegetarian</span><span class="pill">Sourdough</span></div>
-        </div>
-      </div>
-      <!-- Item -->
-      <div class="menu-item reveal">
-        <div class="menu-thumb"></div>
-        <div>
-          <div class="menu-item-head">
-            <h3 class="menu-name">MisSpelt Egg</h3>
-            <span class="menu-price">₪36</span>
-          </div>
-          <p class="menu-desc"><span data-lang-en>Soft-folded eggs, sprouted spelt bread, brinza and herbs. Simple, done properly — the breakfast regulars come back for.</span><span data-lang-he>ביצה רכה, לחם כוסמין מונבט, גבינת ברינזה ועשבי תיבול. פשוט, נעשה כמו שצריך — הבוקר שחוזרים אליו.</span></p>
-          <div class="pills"><span class="pill">Vegetarian</span><span class="pill">Sprouted Grain</span></div>
-        </div>
-      </div>
-      <!-- Item -->
-      <div class="menu-item reveal">
-        <div class="menu-thumb"></div>
-        <div>
-          <div class="menu-item-head">
-            <h3 class="menu-name">Green Machine</h3>
-            <span class="menu-price">₪34</span>
-          </div>
-          <p class="menu-desc"><span data-lang-en>Spinach, green apple, cucumber, celery, ginger &amp; lemon — cold-pressed the morning you drink it. Bright, clean, alive.</span><span data-lang-he>תרד, תפוח ירוק, מלפפון, סלרי, ג'ינג'ר ולימון — נסחט קר בבוקר שאתם שותים אותו. רענן, נקי, חי.</span></p>
-          <div class="pills"><span class="pill">Vegan</span><span class="pill">Cold Pressed</span><span class="pill">No Added Sugar</span></div>
-        </div>
-      </div>
-      <!-- Item -->
-      <div class="menu-item reveal">
-        <div class="menu-thumb"></div>
-        <div>
-          <div class="menu-item-head">
-            <h3 class="menu-name">The Promenade Flat White</h3>
-            <span class="menu-price">₪16</span>
-          </div>
-          <p class="menu-desc"><span data-lang-en>A double ristretto and silky steamed milk. Oat, almond or soy on request — no extra charge, no fuss.</span><span data-lang-he>ריסטרטו כפול וחלב מוקצף משיי. שיבולת שועל, שקדים או סויה לבקשתכם — בלי תוספת תשלום, בלי דרמות.</span></p>
-          <div class="pills"><span class="pill">Plant Milk Available</span></div>
-        </div>
-      </div>
-      <!-- Item -->
-      <div class="menu-item reveal">
-        <div class="menu-thumb"></div>
-        <div>
-          <div class="menu-item-head">
-            <h3 class="menu-name">Golden Hour</h3>
-            <span class="menu-price">₪18</span>
-          </div>
-          <p class="menu-desc"><span data-lang-en>Turmeric, ginger, black pepper and honey steamed into oat milk. Warming, gentle, a little bit medicinal.</span><span data-lang-he>כורכום, ג'ינג'ר, פלפל שחור ודבש בתוך חלב שיבולת שועל. מחמם, עדין, וקצת מרפא.</span></p>
-          <div class="pills"><span class="pill">Vegan</span><span class="pill">Caffeine Free</span></div>
-        </div>
+    <!-- HOT STUFF -->
+    <div class="menu-cat reveal">
+      <h3 class="menu-cat-title">Hot Stuff <span class="he">חמים</span></h3>
+      <div class="menu-list">
+        <div class="m-item"><div class="m-row"><span class="m-name">Filter Coffee</span><span class="m-dots"></span><span class="m-price">₪10/13</span></div><p class="m-desc"><span data-lang-en>From Israeli roasters only — rotates daily</span><span data-lang-he>מבתי קלייה ישראליים בלבד — מתחלף מדי יום</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Express Yourself</span><span class="m-dots"></span><span class="m-price">₪10/12</span></div><p class="m-desc"><span data-lang-en>Espresso · single / double</span><span data-lang-he>אספרסו · יחיד / כפול</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Macho</span><span class="m-dots"></span><span class="m-price">₪11/13</span></div><p class="m-desc"><span data-lang-en>Macchiato · single / double</span><span data-lang-he>מקיאטו · יחיד / כפול</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">American Idol</span><span class="m-dots"></span><span class="m-price">₪11/15</span></div><p class="m-desc"><span data-lang-en>Americano</span><span data-lang-he>אמריקנו</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Cap Your Chinos</span><span class="m-dots"></span><span class="m-price">₪15/18</span></div><p class="m-desc"><span data-lang-en>Cappuccino · regular / our giant</span><span data-lang-he>הפוך · רגיל / ענק שלנו</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">It's a Matcha</span><span class="m-dots"></span><span class="m-price">₪19/23</span></div><p class="m-desc"><span data-lang-en>Matcha · hot / iced</span><span data-lang-he>מאצ׳ה · חמה / קרה</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Organic Cocoa</span><span class="m-dots"></span><span class="m-price">₪15/18</span></div><p class="m-desc"><span data-lang-en>Organic cocoa</span><span data-lang-he>קקאו אורגני</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Mock-a</span><span class="m-dots"></span><span class="m-price">₪16/19</span></div><p class="m-desc"><span data-lang-en>Mocha</span><span data-lang-he>מוקה</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Golden Milk</span><span class="m-dots"></span><span class="m-price">₪12</span></div><p class="m-desc"><span data-lang-en>Warm Indian turmeric and spice drink, milk of choice</span><span data-lang-he>משקה הודי חם על בסיס כורכום ותבלינים, על חלב לבחירה</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Cuppa T</span><span class="m-dots"></span><span class="m-price">₪11</span></div><p class="m-desc"><span data-lang-en>Comforting tea — black, green, chamomile, Earl Grey, jasmine</span><span data-lang-he>תה מנחם — שחור, ירוק, קמומיל, ארל גריי, יסמין</span></p></div>
       </div>
     </div>
 
-    <div class="menu-foot reveal">
-      <a href="#" class="btn btn-dark"><span data-lang-en>Download full menu (PDF)</span><span data-lang-he>הורידו את התפריט המלא</span></a>
+    <!-- SHAKES -->
+    <div class="menu-cat reveal">
+      <h3 class="menu-cat-title">Shake It Up <span class="he">שייקים</span> <span class="cat-price">₪30</span></h3>
+      <div class="menu-list">
+        <div class="m-item"><div class="m-row"><span class="m-name">Sunkissed</span></div><p class="m-desc"><span data-lang-en>Mango, orange, banana, vanilla</span><span data-lang-he>מנגו, תפוז, בננה, וניל</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Green Machine</span></div><p class="m-desc"><span data-lang-en>Pineapple, spirulina, mint, ginger, date</span><span data-lang-he>אננס, ספירולינה, נענע, ג׳ינג׳ר, תמר</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Purple Didi</span></div><p class="m-desc"><span data-lang-en>Blueberry, strawberry, mango, parsley, celery and greens</span><span data-lang-he>אוכמניות, תותים, מנגו, פטרוזיליה, סלרי ותערובת ירוקים</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Havana Club</span></div><p class="m-desc"><span data-lang-en>Lychee, coconut, pineapple and banana</span><span data-lang-he>ליצ׳י, קוקוס, אננס ובננה</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Shake Your Mama</span></div><p class="m-desc"><span data-lang-en>Raw cacao, peanut butter, chia and cacao nibs, passionfruit, blueberry, cinnamon</span><span data-lang-he>קקאו נא, חמאת בוטנים, זרעי צ׳יה ופולי קקאו, פסיפלורה, אוכמניות, קינמון</span></p></div>
+      </div>
     </div>
+
+    <!-- COLD DRINKS -->
+    <div class="menu-cat reveal">
+      <h3 class="menu-cat-title">Cold Drinks <span class="he">שתייה קרה</span></h3>
+      <div class="menu-list">
+        <div class="m-item"><div class="m-row"><span class="m-name">OJ / Apple</span><span class="m-dots"></span><span class="m-price">₪16</span></div><p class="m-desc"><span data-lang-en>Fresh-squeezed orange / apple juice</span><span data-lang-he>מיץ תפוז / תפוח סחוט</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Gazoz</span><span class="m-dots"></span><span class="m-price">₪11</span></div><p class="m-desc"><span data-lang-en>Gruper gazoz — flavoured soda: apple / orange / lemon</span><span data-lang-he>גזוז של גרופר — סודה בטעמים תפוח / תפוז / לימון</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Ice Tea</span><span class="m-dots"></span><span class="m-price">₪16</span></div><p class="m-desc"><span data-lang-en>Our house tea, cinnamon and licorice — no sweetener, naturally sweet</span><span data-lang-he>תה הביתי שלנו, קינמון וליקריש — ללא ממתיק אבל מתוק טבעי</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Goldbrew</span><span class="m-dots"></span><span class="m-price">₪21</span></div><p class="m-desc"><span data-lang-en>24-hour cold brew, 100% organic arabica</span><span data-lang-he>חליטת קפה אורגני 100% ערביקה בהשריה ארוכה של 24 שעות</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Cold Coffee</span><span class="m-dots"></span><span class="m-price">₪19</span></div><p class="m-desc"><span data-lang-en>Organic iced coffee, milk of choice</span><span data-lang-he>קפה אורגני על קרח עם חלב לבחירתך</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Kombucha</span><span class="m-dots"></span><span class="m-price">₪21</span></div><p class="m-desc"><span data-lang-en>The champagne of teas — a healthy probiotic brew</span><span data-lang-he>השמפניה של התה — משקה פרוביוטי בריא וטעים</span></p></div>
+      </div>
+    </div>
+
+    <!-- SANDWICHES -->
+    <div class="menu-cat reveal">
+      <h3 class="menu-cat-title">Slice Me Up <span class="he">כריכים</span> <span class="cat-price">₪24/42</span></h3>
+      <div class="menu-list">
+        <div class="m-item"><div class="m-row"><span class="m-name">Avocado Heaven</span></div><p class="m-desc"><span data-lang-en>Organic avocado, Ethiopian whole-sesame tahini and lettuce</span><span data-lang-he>אבוקדו אורגני עם טחינה אתיופית משומשום מלא וחסה</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">The Kobi</span></div><p class="m-desc"><span data-lang-en>House beetroot spread, soft "Busha" goat cheese, leaves, vinaigrette</span><span data-lang-he>ממרח סלק ביתי, גבינת עיזים רכה ״בושה״, עלים, ויניגרט</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Smashing Pumpkins</span></div><p class="m-desc"><span data-lang-en>Roasted pumpkin, olive spread, toasted almonds and tahini</span><span data-lang-he>דלעת צלויה, ממרח זיתים, שקדים קלויים וטחינה</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Tune-In</span></div><p class="m-desc"><span data-lang-en>Tuna, Tommy mayo, organic cucumber slices</span><span data-lang-he>טונה, מיונז טומי, פרוסות מלפפון אורגני</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Trio</span></div><p class="m-desc"><span data-lang-en>Our pesto, sweet tomato, chard and handmade feta</span><span data-lang-he>ממרח פסטו שלנו, עגבניה מתוקה, מנגולד ופטה בעבודת יד</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">The Desert</span></div><p class="m-desc"><span data-lang-en>Goat labneh, sumac, za'atar, olives, cucumbers</span><span data-lang-he>לאבנה עיזים, סומק, זעתר, זיתים, מלפפונים</span></p></div>
+      </div>
+    </div>
+
+    <!-- HEALTHY BOWLS -->
+    <div class="menu-cat reveal">
+      <h3 class="menu-cat-title">Healthy Bowls <span class="he">קערות בריאות</span></h3>
+      <div class="menu-list">
+        <div class="m-item"><div class="m-row"><span class="m-name">Açaí</span><span class="m-dots"></span><span class="m-price">₪42</span></div><p class="m-desc"><span data-lang-en>Frozen açaí, berries and banana with almond milk — topped with muesli, seasonal fruit, coconut and a honey drizzle</span><span data-lang-he>בלנד קפוא של אסאי, פירות יער ובננה עם חלב שקדים — מהודר במוזלי, פירות העונה, קוקוס וזליפת דבש</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Goat Yogurt</span><span class="m-dots"></span><span class="m-price">₪42</span></div><p class="m-desc"><span data-lang-en>Organic goat yogurt, handmade granola, seasonal fruit, chia and organic maple</span><span data-lang-he>יוגורט עיזים אורגני מקושט בגרנולה בעבודת יד, פירות העונה, זרעי צ׳יה ומייפל אורגני</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Salad of the Day</span><span class="m-dots"></span><span class="m-price">₪34</span></div><p class="m-desc"><span data-lang-en>The chef's fresh salad, made that morning</span><span data-lang-he>סלט היום הטרי של השפית</span></p></div>
+      </div>
+    </div>
+
+    <!-- TOASTS -->
+    <div class="menu-cat reveal">
+      <h3 class="menu-cat-title">Toasts <span class="he">טוסטים</span></h3>
+      <div class="menu-list">
+        <div class="m-item"><div class="m-row"><span class="m-name">I'm Melting</span><span class="m-dots"></span><span class="m-price">₪38</span></div><p class="m-desc"><span data-lang-en>Doron's brinza and extra-virgin olive oil on rye sourdough</span><span data-lang-he>גבינת ברינזה של דורון, שמן זית כתית על לחם מחמצת שיפון</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">I'm Special</span><span class="m-dots"></span><span class="m-price">₪39</span></div><p class="m-desc"><span data-lang-en>Upgraded toast with our pesto and organic tomato slices</span><span data-lang-he>טוסט משודרג עם ממרח הפסטו שלנו ופרוסות עגבניה אורגנית</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Tuna Melt</span><span class="m-dots"></span><span class="m-price">₪42</span></div><p class="m-desc"><span data-lang-en>When you want tuna and toast — brinza, tuna and Dijon</span><span data-lang-he>כשרוצים גם טונה וגם טוסט — ברינזה, טונה ודיז׳ון</span></p></div>
+      </div>
+    </div>
+
+    <!-- SWEET THINGS -->
+    <div class="menu-cat reveal">
+      <h3 class="menu-cat-title">Sweet Things <span class="he">מתוקים</span></h3>
+      <div class="menu-list">
+        <div class="m-item"><div class="m-row"><span class="m-name">Mango Gelato Cup</span><span class="m-dots"></span><span class="m-price">₪21</span></div><p class="m-desc"><span data-lang-en>Israeli mango gelato with Galilee honey</span><span data-lang-he>גביע גלידת מנגו ישראלי עם דבש מהגליל</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Round Cookies</span><span class="m-dots"></span><span class="m-price">₪16</span></div><p class="m-desc"><span data-lang-en>Two round cookies</span><span data-lang-he>שתי עוגיות עגולות</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Squares / Balls</span><span class="m-dots"></span><span class="m-price">₪12</span></div><p class="m-desc"><span data-lang-en>Three squares / energy balls</span><span data-lang-he>שלושה ריבועים / כדורים</span></p></div>
+        <div class="m-item"><div class="m-row"><span class="m-name">Biscotti</span><span class="m-dots"></span><span class="m-price">₪14/31</span></div><p class="m-desc"><span data-lang-en>Chocolate-walnut / cranberry-pecan — single / trio</span><span data-lang-he>שוקולד-אגוזי מלך / חמוציות-פקאן — יחידה / שלישייה</span></p></div>
+      </div>
+    </div>
+
+    <div class="menu-legend reveal">
+      <span><span class="key">♥</span> <span data-lang-en>House favourite</span><span data-lang-he>חביב הבית</span></span>
+      <span><span class="key">V</span> <span data-lang-en>Vegan</span><span data-lang-he>טבעוני</span></span>
+      <span><span class="key">GF</span> <span data-lang-en>Gluten free</span><span data-lang-he>ללא גלוטן</span></span>
+      <span><span data-lang-en>All drinks served EXTRA size · plant milks at no extra charge</span><span data-lang-he>כל המשקאות מוגשים בגודל EXTRA · תחליפי חלב ללא תוספת תשלום</span></span>
+    </div>
+    <p class="menu-note reveal"><span data-lang-en>Most dishes have vegan and gluten-free versions — just ask Hila.</span><span data-lang-he>לרוב המנות יש גרסאות טבעוניות וללא גלוטן — פשוט שאלו את הילה.</span></p>
   </div>
 </section>
 
@@ -1074,6 +1095,39 @@
       <input type="email" placeholder="" id="emailInput" />
       <button class="btn"><span data-lang-en>Join</span><span data-lang-he>הצטרפו</span></button>
     </form>
+  </div>
+</section>
+
+<!-- ===== VISIT / LOCATION ===== -->
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div class="reveal">
+      <p class="kicker"><span data-lang-en>Visit us</span><span data-lang-he>בקרו אותנו</span></p>
+      <h2 class="h-section"><span data-lang-en>On the Ganei Tikva<br>promenade.</span><span data-lang-he class="block">על הטיילת<br>בגני תקווה.</span></h2>
+      <p class="lede"><span data-lang-en>Same spot every day — come say hi, grab a coffee, stay a while.</span><span data-lang-he>באותו מקום בדיוק כל יום — בואו להגיד שלום, לקחת קפה, ולהישאר קצת.</span></p>
+
+      <div class="hours-list">
+        <div class="hours-row" data-day="0"><span class="day"><span data-lang-en>Sunday</span><span data-lang-he>ראשון</span></span><span class="time">7:00 – 14:00</span></div>
+        <div class="hours-row" data-day="1"><span class="day"><span data-lang-en>Monday</span><span data-lang-he>שני</span></span><span class="time">7:00 – 14:00</span></div>
+        <div class="hours-row" data-day="2"><span class="day"><span data-lang-en>Tuesday</span><span data-lang-he>שלישי</span></span><span class="time">7:00 – 14:00</span></div>
+        <div class="hours-row" data-day="3"><span class="day"><span data-lang-en>Wednesday</span><span data-lang-he>רביעי</span></span><span class="time">7:00 – 14:00</span></div>
+        <div class="hours-row" data-day="4"><span class="day"><span data-lang-en>Thursday</span><span data-lang-he>חמישי</span></span><span class="time">7:00 – 15:00</span></div>
+        <div class="hours-row" data-day="5"><span class="day"><span data-lang-en>Friday</span><span data-lang-he>שישי</span></span><span class="time">7:00 – 13:00</span></div>
+        <div class="hours-row closed" data-day="6"><span class="day"><span data-lang-en>Saturday</span><span data-lang-he>שבת</span></span><span class="time"><span data-lang-en>Closed</span><span data-lang-he>סגור</span></span></div>
+      </div>
+
+      <div class="find-meta">
+        <a href="https://maps.app.goo.gl/t1yftgwzrRT5xWraA" target="_blank" rel="noopener" class="btn btn-dark"><span data-lang-en>Get directions</span><span data-lang-he>נווטו אלינו</span></a>
+        <a href="https://www.instagram.com/dlushascoffee/" target="_blank" rel="noopener" class="btn" style="border:1px solid var(--sage-pale); color:var(--sage);"><span data-lang-en>Daily specials on Instagram</span><span data-lang-he>המנות של היום באינסטגרם</span></a>
+      </div>
+    </div>
+
+    <div class="visit-map reveal">
+      <iframe
+        title="D'Lusha's location on Google Maps"
+        src="https://www.google.com/maps?q=D%27Lusha%27s%20Ganei%20Tikva&z=16&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 

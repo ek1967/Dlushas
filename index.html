@@ -109,6 +109,9 @@
     box-shadow: 0 1px 0 rgba(74,124,111,0.12);
   }
   .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-family: var(--serif);
     font-weight: 900;
     font-size: 26px;
@@ -116,9 +119,10 @@
     color: var(--cream);
     transition: color .35s ease;
   }
-  .nav-logo span { color: var(--sage-light); font-style: italic; }
+  .logo-mark { width: 34px; height: 34px; flex-shrink: 0; display: block; }
+  .nav-logo .word span { color: var(--sage-light); font-style: italic; }
   nav.scrolled .nav-logo { color: var(--charcoal); }
-  nav.scrolled .nav-logo span { color: var(--sage); }
+  nav.scrolled .nav-logo .word span { color: var(--sage); }
 
   .nav-links {
     display: flex;
@@ -330,16 +334,22 @@
   a.find-card { display: block; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease; }
   a.find-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -16px rgba(44,58,53,0.35); }
   .find-map { flex-direction: column; gap: 14px; }
+  .map-addr {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--charcoal);
+  }
   .map-cta {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--sage);
-    background: var(--warm-white);
-    padding: 9px 18px;
+    color: var(--cream);
+    background: var(--sage);
+    padding: 11px 22px;
     border-radius: 100px;
-    box-shadow: 0 4px 12px rgba(44,58,53,0.12);
+    box-shadow: 0 4px 12px rgba(44,58,53,0.18);
   }
 
   .hours-list { margin-top: 28px; }
@@ -679,8 +689,9 @@
     max-width: 1240px;
     margin: 0 auto;
   }
-  .footer-brand-name { font-family: var(--serif); font-weight: 900; font-size: 34px; color: var(--cream); letter-spacing: -0.02em; }
-  .footer-brand-name span { color: var(--sage-light); font-style: italic; }
+  .footer-brand-name { display: flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 900; font-size: 34px; color: var(--cream); letter-spacing: -0.02em; }
+  .footer-brand-name .word span { color: var(--sage-light); font-style: italic; }
+  .footer-brand-name .logo-mark { width: 42px; height: 42px; flex-shrink: 0; color: var(--sage-light); }
   .footer-tag { font-family: var(--editorial); font-style: italic; font-size: 17px; color: var(--wheat); margin-top: 6px; }
   .footer-col h4 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 18px; }
   .footer-col a, .footer-col p { display: block; font-size: 14px; font-weight: 300; color: var(--sage-pale); margin-bottom: 12px; transition: color .2s; }
@@ -689,8 +700,10 @@
   .footer-bottom span { color: var(--sage-pale); }
 
   /* ---------- REVEAL ANIM ---------- */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
+  .reveal { transition: opacity .7s ease, transform .7s ease; }
+  /* Only hide content once JS is confirmed running — never strand content if JS/observer fails */
+  html.js .reveal { opacity: 0; transform: translateY(24px); }
+  html.js .reveal.in { opacity: 1; transform: none; }
 
   /* ---------- RTL ---------- */
   html[dir="rtl"] .hours-row, html[dir="rtl"] .menu-item-head, html[dir="rtl"] .reviews-head { direction: rtl; }
@@ -703,6 +716,7 @@
     .comm-grid, .review-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
     .nav-links.open {
       display: flex;
       position: absolute;
@@ -728,7 +742,19 @@
 
 <!-- ===== NAV ===== -->
 <nav id="nav">
-  <a href="#top" class="nav-logo">D'Lu<span>sha's</span></a>
+  <a href="#top" class="nav-logo">
+    <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+      <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+      <path d="M20 8c-2 2-2 4 0 6s2 4 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M27 7c-2 2-2 4 0 6s2 4 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M11 23h22v3a11 11 0 0 1-11 11h0A11 11 0 0 1 11 26z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M33 25h3.5a4 4 0 0 1 0 8H33" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M22 37v-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M22 31c-2.6 0-4.6-1.9-4.6-4.6 2.8 0 4.6 2 4.6 4.6z" fill="currentColor" opacity="0.9"/>
+      <path d="M22 31c2.6 0 4.6-1.9 4.6-4.6-2.8 0-4.6 2-4.6 4.6z" fill="currentColor" opacity="0.9"/>
+    </svg>
+    <span class="word">D'Lu<span>sha's</span></span>
+  </a>
   <div class="nav-links" id="navLinks">
     <a class="nav-link" href="#menu"><span data-lang-en>Menu</span><span data-lang-he>תפריט</span></a>
     <a class="nav-link" href="#story"><span data-lang-en>Our Story</span><span data-lang-he>הסיפור</span></a>
@@ -808,6 +834,7 @@
     <a href="https://maps.app.goo.gl/t1yftgwzrRT5xWraA" target="_blank" rel="noopener" class="find-card reveal" aria-label="Get directions to D'Lusha's on Google Maps">
       <div class="find-map">
         <div class="find-pin">📍</div>
+        <span class="map-addr"><span data-lang-en>The promenade · Ganei Tikva</span><span data-lang-he>הטיילת · גני תקווה</span></span>
         <span class="map-cta"><span data-lang-en>Tap for directions</span><span data-lang-he>הקישו לניווט</span></span>
       </div>
     </a>
@@ -1054,7 +1081,19 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand-name">D'Lu<span>sha's</span></div>
+      <div class="footer-brand-name">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
+          <path d="M20 8c-2 2-2 4 0 6s2 4 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M27 7c-2 2-2 4 0 6s2 4 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M11 23h22v3a11 11 0 0 1-11 11h0A11 11 0 0 1 11 26z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M33 25h3.5a4 4 0 0 1 0 8H33" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M22 37v-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M22 31c-2.6 0-4.6-1.9-4.6-4.6 2.8 0 4.6 2 4.6 4.6z" fill="currentColor" opacity="0.9"/>
+          <path d="M22 31c2.6 0 4.6-1.9 4.6-4.6-2.8 0-4.6 2-4.6 4.6z" fill="currentColor" opacity="0.9"/>
+        </svg>
+        <span class="word">D'Lu<span>sha's</span></span>
+      </div>
       <p class="footer-tag">"It's All Good"</p>
     </div>
     <div class="footer-col">
@@ -1083,6 +1122,9 @@
 </footer>
 
 <script>
+  // Mark that JS is running, so CSS can safely apply scroll-reveal hiding.
+  document.documentElement.classList.add('js');
+
   // ---------- LANGUAGE TOGGLE ----------
   const STR = {
     en: { dir: 'ltr', lang: 'en', email: 'Your email address' },
@@ -1135,10 +1177,17 @@
   })();
 
   // ---------- SCROLL REVEAL ----------
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const revealAll = () => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // Safety net: if anything is still hidden shortly after load, just show it.
+    window.addEventListener('load', () => setTimeout(revealAll, 1500));
+  } else {
+    revealAll(); // Older browsers: no animation, but everything is visible.
+  }
 
   // ---------- YEAR ----------
   document.getElementById('year').textContent = new Date().getFullYear();

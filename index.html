@@ -327,6 +327,21 @@
   }
   @keyframes bob { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
 
+  a.find-card { display: block; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease; }
+  a.find-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -16px rgba(44,58,53,0.35); }
+  .find-map { flex-direction: column; gap: 14px; }
+  .map-cta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    background: var(--warm-white);
+    padding: 9px 18px;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(44,58,53,0.12);
+  }
+
   .hours-list { margin-top: 28px; }
   .hours-row {
     display: flex;
@@ -785,14 +800,17 @@
       </div>
 
       <div class="find-meta">
-        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-dark"><span data-lang-en>Open in Maps</span><span data-lang-he>פתחו בניווט</span></a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="btn" style="border:1px solid var(--sage-pale); color:var(--sage);"><span data-lang-en>Daily specials on Instagram</span><span data-lang-he>המנות של היום באינסטגרם</span></a>
+        <a href="https://maps.app.goo.gl/t1yftgwzrRT5xWraA" target="_blank" rel="noopener" class="btn btn-dark"><span data-lang-en>Get directions</span><span data-lang-he>נווטו אלינו</span></a>
+        <a href="https://www.instagram.com/dlushascoffee/" target="_blank" rel="noopener" class="btn" style="border:1px solid var(--sage-pale); color:var(--sage);"><span data-lang-en>Daily specials on Instagram</span><span data-lang-he>המנות של היום באינסטגרם</span></a>
       </div>
     </div>
 
-    <div class="find-card reveal">
-      <div class="find-map"><div class="find-pin">📍</div></div>
-    </div>
+    <a href="https://maps.app.goo.gl/t1yftgwzrRT5xWraA" target="_blank" rel="noopener" class="find-card reveal" aria-label="Get directions to D'Lusha's on Google Maps">
+      <div class="find-map">
+        <div class="find-pin">📍</div>
+        <span class="map-cta"><span data-lang-en>Tap for directions</span><span data-lang-he>הקישו לניווט</span></span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -1049,12 +1067,12 @@
     <div class="footer-col">
       <h4><span data-lang-en>Find us</span><span data-lang-he>מצאו אותנו</span></h4>
       <p><span data-lang-en>The promenade, Ganei Tikva</span><span data-lang-he>הטיילת, גני תקווה</span></p>
-      <a href="https://maps.google.com" target="_blank" rel="noopener"><span data-lang-en>Open in Maps</span><span data-lang-he>פתחו בניווט</span></a>
+      <a href="https://maps.app.goo.gl/t1yftgwzrRT5xWraA" target="_blank" rel="noopener"><span data-lang-en>Get directions</span><span data-lang-he>נווטו אלינו</span></a>
       <p>Sun–Fri · 7:00–14:00</p>
     </div>
     <div class="footer-col">
       <h4><span data-lang-en>Say hello</span><span data-lang-he>דברו איתנו</span></h4>
-      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.instagram.com/dlushascoffee/" target="_blank" rel="noopener">Instagram · @dlushascoffee</a>
       <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
       <a href="mailto:deelushas@gmail.com">deelushas@gmail.com</a>
     </div>

@@ -120,6 +120,12 @@
     transition: color .35s ease;
   }
   .logo-mark { width: 34px; height: 34px; flex-shrink: 0; display: block; }
+  /* Real logo image (when uploaded to images/logo-badge.png) replaces the drawn fallback */
+  .logo-slot { display: inline-flex; align-items: center; }
+  .logo-slot .logo-img { display: none; width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .logo-slot.has-img .logo-img { display: block; }
+  .logo-slot.has-img .logo-mark { display: none; }
+  .footer-brand-name .logo-slot .logo-img { width: 44px; height: 44px; }
   .nav-logo .word span { color: var(--sage-light); font-style: italic; }
   nav.scrolled .nav-logo { color: var(--charcoal); }
   nav.scrolled .nav-logo .word span { color: var(--sage); }
@@ -789,6 +795,8 @@
 <!-- ===== NAV ===== -->
 <nav id="nav">
   <a href="#top" class="nav-logo">
+    <span class="logo-slot">
+    <img class="logo-img" src="images/logo-badge.png" alt="D'Lusha's logo" onload="this.closest('.logo-slot').classList.add('has-img')" onerror="this.remove()">
     <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
       <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
       <path d="M20 8c-2 2-2 4 0 6s2 4 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -799,6 +807,7 @@
       <path d="M22 31c-2.6 0-4.6-1.9-4.6-4.6 2.8 0 4.6 2 4.6 4.6z" fill="currentColor" opacity="0.9"/>
       <path d="M22 31c2.6 0 4.6-1.9 4.6-4.6-2.8 0-4.6 2-4.6 4.6z" fill="currentColor" opacity="0.9"/>
     </svg>
+    </span>
     <span class="word">D'Lu<span>sha's</span></span>
   </a>
   <div class="nav-links" id="navLinks">
@@ -1136,6 +1145,8 @@
   <div class="footer-grid">
     <div>
       <div class="footer-brand-name">
+        <span class="logo-slot">
+        <img class="logo-img" src="images/logo-badge.png" alt="D'Lusha's logo" onload="this.closest('.logo-slot').classList.add('has-img')" onerror="this.remove()">
         <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2" opacity="0.35"/>
           <path d="M20 8c-2 2-2 4 0 6s2 4 0 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -1146,6 +1157,7 @@
           <path d="M22 31c-2.6 0-4.6-1.9-4.6-4.6 2.8 0 4.6 2 4.6 4.6z" fill="currentColor" opacity="0.9"/>
           <path d="M22 31c2.6 0 4.6-1.9 4.6-4.6-2.8 0-4.6 2-4.6 4.6z" fill="currentColor" opacity="0.9"/>
         </svg>
+        </span>
         <span class="word">D'Lu<span>sha's</span></span>
       </div>
       <p class="footer-tag">"It's All Good"</p>

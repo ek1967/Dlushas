@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D'Lusha's — It's All Good | Ganei Tikva</title>
+<meta name="description" content="D'Lusha's — Le Cordon Bleu craft brought home to the neighbourhood. Fresh, honest food on the promenade in Ganei Tikva. Vegan, gluten-free & no-added-sugar options. It's All Good." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Heebo:wght@300;400;500;700&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --sage: #4A7C6F;
+    --sage-light: #7BAE9F;
+    --sage-pale: #B8D4CC;
+    --sage-wash: #E8F2EF;
+    --cream: #F5F0E8;
+    --warm-white: #FDFAF5;
+    --bark: #8B6F4E;
+    --bark-deep: #5C4A32;
+    --wheat: #D4B896;
+    --charcoal: #2C3A35;
+    --charcoal-soft: #4A5550;
+    --leaf: #2D6A4F;
+    --leaf-bright: #52B788;
+    --sand: #E8D5B7;
+    --terracotta: #C17F5A;
+    --gold: #C9A84C;
+    --gold-pale: #F0DFA8;
+
+    --serif: 'Playfair Display', serif;
+    --editorial: 'Cormorant Garamond', serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  /* When Hebrew is active, body switches to Hebrew-friendly fonts */
+  html[lang="he"] {
+    --sans: 'Heebo', sans-serif;
+    --serif: 'Frank Ruhl Libre', serif;
+    --editorial: 'Frank Ruhl Libre', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-family: var(--sans);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--sage-pale); color: var(--charcoal); }
+
+  /* Hide the inactive language strings entirely */
+  [data-lang-he] { display: none; }
+  html[lang="he"] [data-lang-en] { display: none; }
+  html[lang="he"] [data-lang-he] { display: inline; }
+  html[lang="he"] [data-lang-he].block { display: block; }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 15px 28px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--sage); color: var(--cream); }
+  .btn-primary:hover { background: var(--leaf); }
+  .btn-ghost { background: transparent; color: var(--cream); border-color: rgba(245,240,232,0.4); }
+  .btn-ghost:hover { background: rgba(245,240,232,0.1); border-color: var(--cream); }
+  .btn-dark { background: var(--charcoal); color: var(--cream); }
+  .btn-dark:hover { background: #1f2a25; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 5vw;
+    transition: background .35s ease, padding .35s ease, box-shadow .35s ease;
+  }
+  nav.scrolled {
+    background: rgba(253,250,245,0.92);
+    backdrop-filter: blur(12px);
+    padding: 12px 5vw;
+    box-shadow: 0 1px 0 rgba(74,124,111,0.12);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    transition: color .35s ease;
+  }
+  .nav-logo span { color: var(--sage-light); font-style: italic; }
+  nav.scrolled .nav-logo { color: var(--charcoal); }
+  nav.scrolled .nav-logo span { color: var(--sage); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .nav-links a.nav-link {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.9;
+    transition: color .35s ease, opacity .2s ease;
+  }
+  .nav-links a.nav-link:hover { opacity: 1; }
+  nav.scrolled .nav-links a.nav-link { color: var(--charcoal-soft); }
+
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid rgba(245,240,232,0.45);
+    border-radius: 100px;
+    overflow: hidden;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+  nav.scrolled .lang-toggle { border-color: var(--sage-pale); }
+  .lang-toggle button {
+    background: transparent;
+    border: none;
+    color: var(--cream);
+    padding: 7px 13px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  nav.scrolled .lang-toggle button { color: var(--charcoal-soft); }
+  .lang-toggle button.active { background: var(--sage); color: var(--cream); }
+  nav.scrolled .lang-toggle button.active { color: var(--cream); }
+
+  .nav-cta { display: inline-flex; }
+
+  .nav-burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .nav-burger span { width: 24px; height: 2px; background: var(--cream); transition: background .35s; }
+  nav.scrolled .nav-burger span { background: var(--charcoal); }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    background: var(--charcoal);
+    overflow: hidden;
+  }
+  .hero-photo {
+    position: absolute; inset: 0;
+    /* Replace this gradient with Hila's real promenade / food hero photo */
+    background:
+      radial-gradient(ellipse 70% 60% at 25% 15%, rgba(123,174,159,0.45) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 70% at 80% 90%, rgba(45,106,79,0.55) 0%, transparent 60%),
+      linear-gradient(160deg, #2C3A35 0%, #1c2722 55%, #24322c 100%);
+  }
+  .hero-photo::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero-veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(28,39,34,0.92) 0%, rgba(28,39,34,0.35) 45%, rgba(28,39,34,0.55) 100%);
+  }
+  .photo-note {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.32);
+    border: 1px dashed rgba(245,240,232,0.25);
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    padding: 0 5vw 9vh;
+    max-width: 1100px;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--sage-pale);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(48px, 8vw, 104px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    margin-bottom: 22px;
+    max-width: 14ch;
+  }
+  .hero h1 em { color: var(--sage-light); font-style: italic; }
+  .hero-tagline {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 30px);
+    color: var(--wheat);
+    margin-bottom: 38px;
+    max-width: 40ch;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  /* ---------- VALUES RIBBON ---------- */
+  .ribbon {
+    background: var(--sage);
+    color: var(--cream);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 14px 0;
+  }
+  .ribbon-track {
+    display: inline-flex;
+    gap: 48px;
+    animation: marquee 28s linear infinite;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .ribbon-track span { display: inline-flex; align-items: center; gap: 48px; }
+  .ribbon-track span::after { content: '🌿'; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---------- SECTION SHELL ---------- */
+  section { scroll-margin-top: 80px; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 110px 5vw; }
+  .wrap-tight { max-width: 1080px; }
+
+  .kicker {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+  }
+  .h-section {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--charcoal);
+  }
+  .lede {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: clamp(19px, 2.4vw, 26px);
+    color: var(--bark);
+    line-height: 1.5;
+    max-width: 56ch;
+    margin-top: 18px;
+  }
+
+  /* ---------- FIND THE TRUCK ---------- */
+  .find {
+    background: var(--cream);
+  }
+  .find-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .find-card {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    border-radius: 24px;
+    padding: 14px;
+  }
+  .find-map {
+    border-radius: 16px;
+    height: 340px;
+    /* Drop in a real Google Maps embed of the promenade here */
+    background:
+      radial-gradient(circle at 30% 40%, rgba(123,174,159,0.5), transparent 40%),
+      radial-gradient(circle at 70% 70%, rgba(212,184,150,0.5), transparent 45%),
+      linear-gradient(135deg, #e8f2ef, #f5f0e8);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .find-pin {
+    font-size: 40px;
+    filter: drop-shadow(0 6px 8px rgba(44,58,53,0.25));
+    animation: bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
+
+  .hours-list { margin-top: 28px; }
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--sage-wash);
+    font-size: 15px;
+  }
+  .hours-row .day { font-weight: 500; }
+  .hours-row .time { color: var(--charcoal-soft); font-weight: 300; }
+  .hours-row.closed .time { color: var(--terracotta); }
+  .hours-row.today {
+    background: var(--sage-wash);
+    margin: 0 -16px;
+    padding: 13px 16px;
+    border-radius: 10px;
+    border-bottom: none;
+  }
+  .hours-row.today .day::after {
+    content: '• Today';
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-left: 10px;
+    font-weight: 600;
+  }
+  html[lang="he"] .hours-row.today .day::after { content: '• היום'; margin-left: 0; margin-right: 10px; }
+
+  .find-meta { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* ---------- MENU ---------- */
+  .menu { background: var(--warm-white); }
+  .menu-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 36px 0 48px;
+  }
+  .menu-tab {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 9px 18px;
+    border-radius: 100px;
+    border: 1px solid var(--sage-pale);
+    background: transparent;
+    color: var(--charcoal-soft);
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .menu-tab.active, .menu-tab:hover { background: var(--sage); color: var(--cream); border-color: var(--sage); }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 56px;
+  }
+  .menu-item { display: grid; grid-template-columns: 88px 1fr; gap: 22px; }
+  .menu-thumb {
+    width: 88px; height: 88px;
+    border-radius: 16px;
+    flex-shrink: 0;
+    /* Real food photo per item */
+    background: linear-gradient(135deg, var(--sage-light), var(--leaf));
+    position: relative;
+    overflow: hidden;
+  }
+  .menu-item:nth-child(2n) .menu-thumb { background: linear-gradient(135deg, var(--wheat), var(--bark)); }
+  .menu-item:nth-child(3n) .menu-thumb { background: linear-gradient(135deg, var(--terracotta), var(--bark-deep)); }
+  .menu-item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .menu-name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--charcoal);
+    line-height: 1.15;
+  }
+  .menu-price {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .menu-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--charcoal-soft);
+    line-height: 1.6;
+    margin: 6px 0 12px;
+  }
+  .pills { display: flex; gap: 7px; flex-wrap: wrap; }
+  .pill {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 100px;
+    background: var(--sage-wash);
+    color: var(--sage);
+    border: 1px solid var(--sage-pale);
+  }
+  .menu-foot { text-align: center; margin-top: 56px; }
+
+  /* ---------- STORY / MEET HILA ---------- */
+  .story { background: var(--charcoal); color: var(--cream); }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .story-photo {
+    border-radius: 24px;
+    aspect-ratio: 4/5;
+    /* Portrait of Hila on the promenade */
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(123,174,159,0.6), transparent 60%),
+      linear-gradient(160deg, var(--sage), var(--bark-deep));
+    position: relative;
+    overflow: hidden;
+  }
+  .story .kicker { color: var(--sage-light); }
+  .story h2 { color: var(--cream); }
+  .story p { color: var(--sage-pale); font-weight: 300; font-size: 16px; margin-top: 20px; max-width: 52ch; }
+  .story .lede { color: var(--wheat); }
+  .cred-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+  .cred {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-pale);
+    border: 1px solid rgba(184,212,204,0.3);
+    border-radius: 100px;
+    padding: 8px 16px;
+  }
+
+  /* ---------- COMMUNITY ---------- */
+  .community { background: var(--sage-wash); }
+  .comm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .comm-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--sage-pale);
+    display: flex;
+    flex-direction: column;
+  }
+  .comm-img {
+    height: 180px;
+    background: linear-gradient(135deg, var(--sage-light), var(--leaf));
+  }
+  .comm-card:nth-child(2) .comm-img { background: linear-gradient(135deg, var(--wheat), var(--terracotta)); }
+  .comm-card:nth-child(3) .comm-img { background: linear-gradient(135deg, var(--sage-pale), var(--sage)); }
+  .comm-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
+  .comm-tag {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .comm-title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 21px;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .comm-text { font-size: 14px; font-weight: 300; color: var(--charcoal-soft); line-height: 1.6; flex: 1; }
+  .comm-link { margin-top: 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews { background: var(--warm-white); }
+  .reviews-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; }
+  .google-rating {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--cream);
+    border: 1px solid var(--sand);
+    border-radius: 16px;
+    padding: 16px 22px;
+  }
+  .google-rating .score { font-family: var(--serif); font-weight: 900; font-size: 40px; color: var(--charcoal); line-height: 1; }
+  .stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; }
+  .google-rating .count { font-size: 12px; color: var(--charcoal-soft); }
+  .g-logo { font-weight: 700; letter-spacing: -0.02em; }
+  .g-logo .b{color:#4285F4}.g-logo .r{color:#EA4335}.g-logo .y{color:#FBBC05}.g-logo .g{color:#34A853}
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .review-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 30px 28px;
+    border: 1px solid var(--sand);
+    display: flex;
+    flex-direction: column;
+  }
+  .review-card .stars { margin-bottom: 16px; }
+  .review-quote {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--charcoal);
+    flex: 1;
+  }
+  .review-author { display: flex; align-items: center; gap: 12px; margin-top: 22px; }
+  .review-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--sage);
+    color: var(--cream);
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .review-name { font-weight: 500; font-size: 14px; }
+  .review-meta { font-size: 12px; color: var(--charcoal-soft); }
+  .reviews-foot { text-align: center; margin-top: 48px; }
+
+  /* ---------- ORDER / SHOP (coming soon) ---------- */
+  .order { background: var(--charcoal); color: var(--cream); }
+  .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .order .kicker { color: var(--gold); }
+  .order h2 { color: var(--cream); }
+  .order p { color: var(--sage-pale); font-weight: 300; margin-top: 18px; max-width: 48ch; }
+  .order-steps { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+  .order-step { display: flex; gap: 16px; align-items: flex-start; }
+  .order-step .num {
+    width: 34px; height: 34px; flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--sage-light);
+    color: var(--sage-light);
+    display: grid; place-items: center;
+    font-size: 14px; font-weight: 600;
+  }
+  .order-step .txt { font-size: 15px; color: var(--cream); }
+  .order-step .txt small { display:block; color: var(--sage-pale); font-weight: 300; font-size: 13px; margin-top: 2px; }
+  .soon-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 100px;
+    padding: 6px 14px;
+    margin-top: 28px;
+  }
+
+  /* Phone mockup of the imagined ordering app */
+  .phone {
+    width: 280px;
+    margin: 0 auto;
+    background: #12191600;
+    border-radius: 38px;
+    padding: 14px;
+    background: linear-gradient(160deg, #1f2a25, #0f1512);
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6);
+    border: 1px solid rgba(184,212,204,0.15);
+  }
+  .phone-screen {
+    background: var(--warm-white);
+    border-radius: 26px;
+    overflow: hidden;
+    color: var(--charcoal);
+  }
+  .phone-top { background: var(--sage); color: var(--cream); padding: 22px 20px 18px; }
+  .phone-top .pt-brand { font-family: var(--serif); font-weight: 900; font-size: 20px; }
+  .phone-top .pt-brand span { color: var(--gold-pale); font-style: italic; }
+  .phone-top .pt-sub { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+  .phone-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--sage-wash);
+  }
+  .phone-row .pr-thumb { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg,var(--sage-light),var(--leaf)); flex-shrink:0; }
+  .phone-row:nth-child(3) .pr-thumb { background: linear-gradient(135deg,var(--wheat),var(--bark)); }
+  .phone-row .pr-name { font-family: var(--serif); font-weight: 700; font-size: 14px; }
+  .phone-row .pr-price { font-size: 12px; color: var(--gold); font-weight: 600; }
+  .phone-row .pr-add { margin-left: auto; width: 26px; height: 26px; border-radius: 50%; background: var(--sage); color: #fff; display: grid; place-items: center; font-size: 16px; }
+  html[lang="he"] .phone-row .pr-add { margin-left: 0; margin-right: auto; }
+  .phone-cta { margin: 16px; background: var(--charcoal); color: var(--cream); text-align: center; padding: 14px; border-radius: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; }
+
+  /* ---------- NEWSLETTER ---------- */
+  .signup { background: var(--sage); color: var(--cream); }
+  .signup .wrap { text-align: center; }
+  .signup h2 { color: var(--cream); font-family: var(--serif); font-weight: 700; font-size: clamp(30px,4vw,46px); }
+  .signup p { color: var(--sage-pale); max-width: 46ch; margin: 16px auto 0; }
+  .signup-form { display: flex; gap: 12px; max-width: 480px; margin: 32px auto 0; flex-wrap: wrap; justify-content: center; }
+  .signup-form input {
+    flex: 1; min-width: 220px;
+    padding: 15px 20px;
+    border-radius: 100px;
+    border: 1px solid rgba(245,240,232,0.4);
+    background: rgba(253,250,245,0.12);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 14px;
+  }
+  .signup-form input::placeholder { color: var(--sage-pale); }
+  .signup-form .btn { background: var(--cream); color: var(--charcoal); }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: var(--charcoal); color: var(--sage-pale); }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 80px 5vw 40px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .footer-brand-name { font-family: var(--serif); font-weight: 900; font-size: 34px; color: var(--cream); letter-spacing: -0.02em; }
+  .footer-brand-name span { color: var(--sage-light); font-style: italic; }
+  .footer-tag { font-family: var(--editorial); font-style: italic; font-size: 17px; color: var(--wheat); margin-top: 6px; }
+  .footer-col h4 { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 18px; }
+  .footer-col a, .footer-col p { display: block; font-size: 14px; font-weight: 300; color: var(--sage-pale); margin-bottom: 12px; transition: color .2s; }
+  .footer-col a:hover { color: var(--cream); }
+  .footer-bottom { border-top: 1px solid rgba(184,212,204,0.15); padding: 24px 5vw; text-align: center; font-size: 12px; color: var(--charcoal-soft); }
+  .footer-bottom span { color: var(--sage-pale); }
+
+  /* ---------- REVEAL ANIM ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- RTL ---------- */
+  html[dir="rtl"] .hours-row, html[dir="rtl"] .menu-item-head, html[dir="rtl"] .reviews-head { direction: rtl; }
+  html[dir="rtl"] .menu-item { grid-template-columns: 1fr 88px; }
+  html[dir="rtl"] .menu-item .menu-thumb { order: 2; }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 900px) {
+    .find-grid, .story-grid, .order-grid, .menu-grid { grid-template-columns: 1fr; gap: 40px; }
+    .comm-grid, .review-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      flex-direction: column;
+      gap: 18px;
+      background: var(--warm-white);
+      padding: 28px 5vw;
+      box-shadow: 0 12px 30px rgba(44,58,53,0.12);
+    }
+    .nav-links.open a.nav-link { color: var(--charcoal); }
+    .nav-burger { display: flex; }
+    .story-grid { direction: ltr; }
+  }
+  @media (max-width: 520px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .menu-item { grid-template-columns: 64px 1fr; }
+    .menu-thumb { width: 64px; height: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <a href="#top" class="nav-logo">D'Lu<span>sha's</span></a>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link" href="#menu"><span data-lang-en>Menu</span><span data-lang-he>תפריט</span></a>
+    <a class="nav-link" href="#story"><span data-lang-en>Our Story</span><span data-lang-he>הסיפור</span></a>
+    <a class="nav-link" href="#community"><span data-lang-en>Community</span><span data-lang-he>קהילה</span></a>
+    <a class="nav-link" href="#reviews"><span data-lang-en>Reviews</span><span data-lang-he>ביקורות</span></a>
+    <a class="nav-link" href="#order"><span data-lang-en>Order</span><span data-lang-he>הזמנה</span></a>
+  </div>
+  <div style="display:flex; align-items:center; gap:16px;">
+    <div class="lang-toggle">
+      <button id="enBtn" class="active" onclick="setLang('en')">EN</button>
+      <button id="heBtn" onclick="setLang('he')">עב</button>
+    </div>
+    <a href="#find" class="btn btn-primary nav-cta">
+      <span data-lang-en>Find the truck</span><span data-lang-he>איפה אנחנו</span>
+    </a>
+    <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="hero-photo"></div>
+  <div class="photo-note" data-lang-en>Hero photo: Hila &amp; the cart on the promenade</div>
+  <div class="photo-note" data-lang-he>תמונת רקע: הילה והעגלה על הטיילת</div>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow"><span data-lang-en>Ganei Tikva · On the promenade</span><span data-lang-he>גני תקווה · על הטיילת</span></p>
+    <h1>
+      <span data-lang-en>Serious food.<br><em>Genuine</em> warmth.</span>
+      <span data-lang-he class="block">אוכל אמיתי.<br>חום של <em>בית.</em></span>
+    </h1>
+    <p class="hero-tagline">
+      <span data-lang-en>Le Cordon Bleu craft, brought home to the neighbourhood. Fresh, honest food — and a coffee that's very, very good.</span>
+      <span data-lang-he>קורדון בלו בלב השכונה. אוכל טרי וכן — וקפה ממש, ממש טוב.</span>
+    </p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-primary"><span data-lang-en>See the menu</span><span data-lang-he>לתפריט</span></a>
+      <a href="#find" class="btn btn-ghost"><span data-lang-en>Find us today</span><span data-lang-he>איפה אנחנו היום</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== VALUES RIBBON ===== -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track" id="ribbon">
+    <span data-lang-en>Organic · Vegan options · Gluten free · No added sugar · Real ingredients · Made fresh · Le Cordon Bleu · It's All Good · </span>
+    <span data-lang-en>Organic · Vegan options · Gluten free · No added sugar · Real ingredients · Made fresh · Le Cordon Bleu · It's All Good · </span>
+    <span data-lang-he>אורגני · אפשרויות טבעוניות · ללא גלוטן · ללא סוכר מוסף · חומרי גלם אמיתיים · טרי כל יום · קורדון בלו · </span>
+    <span data-lang-he>אורגני · אפשרויות טבעוניות · ללא גלוטן · ללא סוכר מוסף · חומרי גלם אמיתיים · טרי כל יום · קורדון בלו · </span>
+  </div>
+</div>
+
+<!-- ===== FIND THE TRUCK ===== -->
+<section class="find" id="find">
+  <div class="wrap find-grid">
+    <div class="reveal">
+      <p class="kicker"><span data-lang-en>Find the truck</span><span data-lang-he>איפה אנחנו</span></p>
+      <h2 class="h-section"><span data-lang-en>On the promenade,<br>most mornings.</span><span data-lang-he class="block">על הטיילת,<br>רוב הבקרים.</span></h2>
+      <p class="lede"><span data-lang-en>Look for the cart by the Ganei Tikva promenade — near the mini-pitch. Hours shift with the seasons, so check before you come.</span><span data-lang-he>חפשו את העגלה בטיילת של גני תקווה — ליד מגרש הכדורגל. השעות משתנות עם העונה, אז כדאי לבדוק לפני שמגיעים.</span></p>
+
+      <div class="hours-list">
+        <div class="hours-row" data-day="0"><span class="day"><span data-lang-en>Sunday</span><span data-lang-he>ראשון</span></span><span class="time">7:00 – 14:00</span></div>
+        <div class="hours-row" data-day="1"><span class="day"><span data-lang-en>Monday</span><span data-lang-he>שני</span></span><span class="time">7:00 – 14:00</span></div>
+        <div class="hours-row" data-day="2"><span class="day"><span data-lang-en>Tuesday</span><span data-lang-he>שלישי</span></span><span class="time">7:00 – 14:00</span></div>
+        <div class="hours-row" data-day="3"><span class="day"><span data-lang-en>Wednesday</span><span data-lang-he>רביעי</span></span><span class="time">7:00 – 14:00</span></div>
+        <div class="hours-row" data-day="4"><span class="day"><span data-lang-en>Thursday</span><span data-lang-he>חמישי</span></span><span class="time">7:00 – 15:00</span></div>
+        <div class="hours-row" data-day="5"><span class="day"><span data-lang-en>Friday</span><span data-lang-he>שישי</span></span><span class="time">7:00 – 13:00</span></div>
+        <div class="hours-row closed" data-day="6"><span class="day"><span data-lang-en>Saturday</span><span data-lang-he>שבת</span></span><span class="time"><span data-lang-en>Closed</span><span data-lang-he>סגור</span></span></div>
+      </div>
+
+      <div class="find-meta">
+        <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-dark"><span data-lang-en>Open in Maps</span><span data-lang-he>פתחו בניווט</span></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="btn" style="border:1px solid var(--sage-pale); color:var(--sage);"><span data-lang-en>Daily specials on Instagram</span><span data-lang-he>המנות של היום באינסטגרם</span></a>
+      </div>
+    </div>
+
+    <div class="find-card reveal">
+      <div class="find-map"><div class="find-pin">📍</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <p class="kicker reveal"><span data-lang-en>The Menu</span><span data-lang-he>התפריט</span></p>
+    <h2 class="h-section reveal"><span data-lang-en>Fresh from our kitchen<br>to your hands.</span><span data-lang-he class="block">היישר מהמטבח<br>אל הידיים שלכם.</span></h2>
+
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active"><span data-lang-en>Signatures</span><span data-lang-he>המנות שלנו</span></button>
+      <button class="menu-tab"><span data-lang-en>Smoothie Bowls</span><span data-lang-he>קעריות סמודי</span></button>
+      <button class="menu-tab"><span data-lang-en>Sandwiches</span><span data-lang-he>כריכים</span></button>
+      <button class="menu-tab"><span data-lang-en>Coffee &amp; Drinks</span><span data-lang-he>קפה ומשקאות</span></button>
+    </div>
+
+    <div class="menu-grid">
+      <!-- Item -->
+      <div class="menu-item reveal">
+        <div class="menu-thumb"></div>
+        <div>
+          <div class="menu-item-head">
+            <h3 class="menu-name">Berry Smooth</h3>
+            <span class="menu-price">₪40</span>
+          </div>
+          <p class="menu-desc"><span data-lang-en>Açaí, mixed berries, banana &amp; almond milk — crowned with whole-grain rice pops, fresh blueberries, toasted coconut and a kiss of raw honey.</span><span data-lang-he>אסאי, פירות יער, בננה וחלב שקדים — מוכתר בפצפוצי אורז מלא, אוכמניות, קוקוס קלוי ונגיעת דבש טבעי.</span></p>
+          <div class="pills"><span class="pill">Vegan</span><span class="pill">Gluten Free</span><span class="pill">No Added Sugar</span></div>
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="menu-item reveal">
+        <div class="menu-thumb"></div>
+        <div>
+          <div class="menu-item-head">
+            <h3 class="menu-name">Heaven Avocado</h3>
+            <span class="menu-price">₪38</span>
+          </div>
+          <p class="menu-desc"><span data-lang-en>Organic avocado meets Ethiopian tahini, roasted garlic and a handful of fresh leaves on sourdough. The kind of sandwich that makes you pause mid-bite.</span><span data-lang-he>אבוקדו אורגני פוגש טחינה אתיופית, שום קלוי וחופן עלים טריים על מחמצת. הכריך שגורם לכם לעצור באמצע ביס.</span></p>
+          <div class="pills"><span class="pill">Vegetarian</span><span class="pill">Sourdough</span></div>
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="menu-item reveal">
+        <div class="menu-thumb"></div>
+        <div>
+          <div class="menu-item-head">
+            <h3 class="menu-name">MisSpelt Egg</h3>
+            <span class="menu-price">₪36</span>
+          </div>
+          <p class="menu-desc"><span data-lang-en>Soft-folded eggs, sprouted spelt bread, brinza and herbs. Simple, done properly — the breakfast regulars come back for.</span><span data-lang-he>ביצה רכה, לחם כוסמין מונבט, גבינת ברינזה ועשבי תיבול. פשוט, נעשה כמו שצריך — הבוקר שחוזרים אליו.</span></p>
+          <div class="pills"><span class="pill">Vegetarian</span><span class="pill">Sprouted Grain</span></div>
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="menu-item reveal">
+        <div class="menu-thumb"></div>
+        <div>
+          <div class="menu-item-head">
+            <h3 class="menu-name">Green Machine</h3>
+            <span class="menu-price">₪34</span>
+          </div>
+          <p class="menu-desc"><span data-lang-en>Spinach, green apple, cucumber, celery, ginger &amp; lemon — cold-pressed the morning you drink it. Bright, clean, alive.</span><span data-lang-he>תרד, תפוח ירוק, מלפפון, סלרי, ג'ינג'ר ולימון — נסחט קר בבוקר שאתם שותים אותו. רענן, נקי, חי.</span></p>
+          <div class="pills"><span class="pill">Vegan</span><span class="pill">Cold Pressed</span><span class="pill">No Added Sugar</span></div>
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="menu-item reveal">
+        <div class="menu-thumb"></div>
+        <div>
+          <div class="menu-item-head">
+            <h3 class="menu-name">The Promenade Flat White</h3>
+            <span class="menu-price">₪16</span>
+          </div>
+          <p class="menu-desc"><span data-lang-en>A double ristretto and silky steamed milk. Oat, almond or soy on request — no extra charge, no fuss.</span><span data-lang-he>ריסטרטו כפול וחלב מוקצף משיי. שיבולת שועל, שקדים או סויה לבקשתכם — בלי תוספת תשלום, בלי דרמות.</span></p>
+          <div class="pills"><span class="pill">Plant Milk Available</span></div>
+        </div>
+      </div>
+      <!-- Item -->
+      <div class="menu-item reveal">
+        <div class="menu-thumb"></div>
+        <div>
+          <div class="menu-item-head">
+            <h3 class="menu-name">Golden Hour</h3>
+            <span class="menu-price">₪18</span>
+          </div>
+          <p class="menu-desc"><span data-lang-en>Turmeric, ginger, black pepper and honey steamed into oat milk. Warming, gentle, a little bit medicinal.</span><span data-lang-he>כורכום, ג'ינג'ר, פלפל שחור ודבש בתוך חלב שיבולת שועל. מחמם, עדין, וקצת מרפא.</span></p>
+          <div class="pills"><span class="pill">Vegan</span><span class="pill">Caffeine Free</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-foot reveal">
+      <a href="#" class="btn btn-dark"><span data-lang-en>Download full menu (PDF)</span><span data-lang-he>הורידו את התפריט המלא</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORY / MEET HILA ===== -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-photo reveal"></div>
+    <div class="reveal">
+      <p class="kicker"><span data-lang-en>Our Story</span><span data-lang-he>הסיפור שלנו</span></p>
+      <h2 class="h-section"><span data-lang-en>The chef who became<br>your neighbour.</span><span data-lang-he class="block">השפית<br>שהפכה לשכנה שלכם.</span></h2>
+      <p class="lede"><span data-lang-en>Hila trained at Le Cordon Bleu London, staged at Michelin-starred SKETCH, and ran operations for Heritage Hotels in New Zealand. Then she came home — and opened a cart on the promenade.</span><span data-lang-he>הילה למדה בקורדון בלו לונדון, התמחתה ב-SKETCH מכוכב מישלן, וניהלה תפעול ברשת מלונות בניו זילנד. ואז חזרה הביתה — ופתחה עגלה על הטיילת.</span></p>
+      <p><span data-lang-en>That gap — chef-grade knowledge made neighbourhood-accessible — is the whole point. Real ingredients, real skill, real care. And if you have a question about food, nutrition, or eating well, Hila is the neighbour you can actually ask.</span><span data-lang-he>הפער הזה — ידע של שפית שהפך נגיש לשכונה — הוא כל הסיפור. חומרי גלם אמיתיים, מקצועיות אמיתית, אכפתיות אמיתית. ואם יש לכם שאלה על אוכל, תזונה או אכילה נכונה — הילה היא השכנה שאפשר באמת לשאול.</span></p>
+      <div class="cred-row">
+        <span class="cred">Le Cordon Bleu · London</span>
+        <span class="cred">SKETCH · Michelin</span>
+        <span class="cred">Heritage Hotels · NZ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMUNITY ===== -->
+<section class="community" id="community">
+  <div class="wrap">
+    <p class="kicker reveal"><span data-lang-en>In the neighbourhood</span><span data-lang-he>בשכונה</span></p>
+    <h2 class="h-section reveal"><span data-lang-en>Good food, good people,<br>good causes.</span><span data-lang-he class="block">אוכל טוב, אנשים טובים,<br>מטרות טובות.</span></h2>
+    <p class="lede reveal"><span data-lang-en>D'Lusha's isn't just a cart — it's part of Ganei Tikva. Here's what we're up to lately.</span><span data-lang-he>דלושס זו לא רק עגלה — היא חלק מגני תקווה. הנה מה שקורה אצלנו לאחרונה.</span></p>
+
+    <div class="comm-grid">
+      <div class="comm-card reveal">
+        <div class="comm-img"></div>
+        <div class="comm-body">
+          <p class="comm-tag"><span data-lang-en>Community Spotlight</span><span data-lang-he>זרקור קהילתי</span></p>
+          <h3 class="comm-title"><span data-lang-en>Supporting our local cancer-care group</span><span data-lang-he>תומכים בקבוצת התמיכה המקומית</span></h3>
+          <p class="comm-text"><span data-lang-en>Every month we partner with a cause close to our hearts. Right now that's nutrition support for patients and survivors — clean, gentle food, made with care.</span><span data-lang-he>כל חודש אנחנו מתחברים למטרה שקרובה ללב. כרגע זו תמיכה תזונתית למתמודדים ולמחלימים — אוכל נקי, עדין, ומלא אכפתיות.</span></p>
+          <span class="comm-link"><span data-lang-en>Read more →</span><span data-lang-he>← קראו עוד</span></span>
+        </div>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-img"></div>
+        <div class="comm-body">
+          <p class="comm-tag"><span data-lang-en>Ask the Chef</span><span data-lang-he>שאלו את השפית</span></p>
+          <h3 class="comm-title"><span data-lang-en>Why we use sprouted grains</span><span data-lang-he>למה אנחנו עובדים עם דגנים מונבטים</span></h3>
+          <p class="comm-text"><span data-lang-en>Sprouted flour is easier to digest, richer in available nutrients, and gentler on blood sugar. Hila shares the little things that make a real difference.</span><span data-lang-he>קמח מונבט קל יותר לעיכול, עשיר יותר בנוטריינטים זמינים ומאזן יותר את הסוכר בדם. הילה משתפת בדברים הקטנים שעושים את ההבדל.</span></p>
+          <span class="comm-link"><span data-lang-en>Read more →</span><span data-lang-he>← קראו עוד</span></span>
+        </div>
+      </div>
+      <div class="comm-card reveal">
+        <div class="comm-img"></div>
+        <div class="comm-body">
+          <p class="comm-tag"><span data-lang-en>On the promenade</span><span data-lang-he>על הטיילת</span></p>
+          <h3 class="comm-title"><span data-lang-en>Saturday-night sourdough club</span><span data-lang-he>מועדון המחמצת של מוצ"ש</span></h3>
+          <p class="comm-text"><span data-lang-en>Once a month we bake extra and set out a table. Bring a neighbour, take a loaf, stay for a coffee. That's it. That's the event.</span><span data-lang-he>פעם בחודש אופים יותר ומוציאים שולחן. תביאו שכן, קחו כיכר, הישארו לקפה. זהו. זה האירוע.</span></p>
+          <span class="comm-link"><span data-lang-en>See dates →</span><span data-lang-he>← לתאריכים</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div>
+        <p class="kicker"><span data-lang-en>What the neighbourhood says</span><span data-lang-he>מה השכונה אומרת</span></p>
+        <h2 class="h-section"><span data-lang-en>Loved on Google.</span><span data-lang-he>אוהבים אותנו בגוגל.</span></h2>
+      </div>
+      <div class="google-rating">
+        <div class="score">4.9</div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="count"><span class="g-logo"><span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span></span> · <span data-lang-en>127 reviews</span><span data-lang-he>127 ביקורות</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote"><span data-lang-en>“Best coffee on the promenade, hands down. The smoothie bowls are works of art and you can taste how fresh everything is.”</span><span data-lang-he>״הקפה הכי טוב על הטיילת, אין על זה ויכוח. קעריות הסמודי הן יצירות אמנות ומרגישים כמה הכל טרי.״</span></p>
+        <div class="review-author"><div class="review-avatar">M</div><div><div class="review-name">Maya L.</div><div class="review-meta"><span data-lang-en>Local Guide · 2 weeks ago</span><span data-lang-he>מדריכה מקומית · לפני שבועיים</span></div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote"><span data-lang-en>“Finally a place that takes gluten-free seriously. Hila actually knows her stuff — she answered all my questions and the food is incredible.”</span><span data-lang-he>״סוף סוף מקום שמתייחס ברצינות לללא גלוטן. הילה באמת מבינה — ענתה לי על כל שאלה והאוכל פשוט מדהים.״</span></p>
+        <div class="review-author"><div class="review-avatar">D</div><div><div class="review-name">Daniel R.</div><div class="review-meta"><span data-lang-en>4 reviews · 1 month ago</span><span data-lang-he>4 ביקורות · לפני חודש</span></div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote"><span data-lang-en>“We come every morning with the dog. It feels like family. Real food, real prices, and the warmest welcome in Ganei Tikva.”</span><span data-lang-he>״באים כל בוקר עם הכלב. מרגיש כמו משפחה. אוכל אמיתי, מחירים הוגנים, וקבלת הפנים הכי חמה בגני תקווה.״</span></p>
+        <div class="review-author"><div class="review-avatar">S</div><div><div class="review-name">Sharon B.</div><div class="review-meta"><span data-lang-en>Local Guide · 3 weeks ago</span><span data-lang-he>מדריכה מקומית · לפני 3 שבועות</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="reviews-foot reveal">
+      <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="btn btn-dark"><span data-lang-en>Read all reviews on Google</span><span data-lang-he>קראו את כל הביקורות בגוגל</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORDER / SHOP (coming soon) ===== -->
+<section class="order" id="order">
+  <div class="wrap order-grid">
+    <div class="reveal">
+      <p class="kicker"><span data-lang-en>Coming soon</span><span data-lang-he>בקרוב</span></p>
+      <h2 class="h-section"><span data-lang-en>Skip the wait.<br>Order ahead.</span><span data-lang-he class="block">בלי תורים.<br>הזמינו מראש.</span></h2>
+      <p><span data-lang-en>We're building a simple way to order your morning from your phone — pay, pick a time, and it's ready when you reach the cart. No app to download.</span><span data-lang-he>אנחנו בונים דרך פשוטה להזמין את הבוקר מהטלפון — לשלם, לבחור שעה, וזה מחכה מוכן כשמגיעים לעגלה. בלי להוריד אפליקציה.</span></p>
+      <div class="order-steps">
+        <div class="order-step"><div class="num">1</div><div class="txt"><span data-lang-en>Pick your order</span><span data-lang-he>בוחרים מה רוצים</span><small><span data-lang-en>Browse the menu, tap to add — dietary tags front and centre.</span><span data-lang-he>גוללים בתפריט, מקישים להוספה — הסימונים התזונתיים בולטים.</span></small></div></div>
+        <div class="order-step"><div class="num">2</div><div class="txt"><span data-lang-en>Choose a pickup time</span><span data-lang-he>בוחרים שעת איסוף</span><small><span data-lang-en>On your way? Grab the next slot. Planning ahead? Schedule it.</span><span data-lang-he>בדרך? קחו את החלון הקרוב. מתכננים? קבעו מראש.</span></small></div></div>
+        <div class="order-step"><div class="num">3</div><div class="txt"><span data-lang-en>Pay &amp; collect</span><span data-lang-he>משלמים ואוספים</span><small><span data-lang-en>Pay with Bit or card. We'll text you when it's ready.</span><span data-lang-he>משלמים בביט או באשראי. נשלח הודעה כשמוכן.</span></small></div></div>
+      </div>
+      <span class="soon-tag"><span data-lang-en>★ Be first to know — join below</span><span data-lang-he>★ היו הראשונים לדעת — הצטרפו למטה</span></span>
+    </div>
+
+    <div class="reveal">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-top">
+            <div class="pt-brand">D'Lu<span>sha's</span></div>
+            <div class="pt-sub"><span data-lang-en>Order ahead · Ready in 8 min</span><span data-lang-he>הזמנה מראש · מוכן בעוד 8 דק׳</span></div>
+          </div>
+          <div class="phone-row"><div class="pr-thumb"></div><div><div class="pr-name">Berry Smooth</div><div class="pr-price">₪40</div></div><div class="pr-add">+</div></div>
+          <div class="phone-row"><div class="pr-thumb"></div><div><div class="pr-name">Flat White · Oat</div><div class="pr-price">₪16</div></div><div class="pr-add">+</div></div>
+          <div class="phone-row"><div class="pr-thumb"></div><div><div class="pr-name">Heaven Avocado</div><div class="pr-price">₪38</div></div><div class="pr-add">+</div></div>
+          <div class="phone-cta"><span data-lang-en>Checkout · ₪94</span><span data-lang-he>לתשלום · ₪94</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="signup">
+  <div class="wrap">
+    <h2><span data-lang-en>Stay in the loop.</span><span data-lang-he>שנהיה בקשר.</span></h2>
+    <p><span data-lang-en>Daily specials, where the cart is parked, and first dibs on order-ahead when it launches. No spam — promise.</span><span data-lang-he>המנות של היום, איפה העגלה חונה, וגישה ראשונה להזמנה מראש כשתעלה. בלי ספאם — מבטיחים.</span></p>
+    <form class="signup-form" onsubmit="return false;">
+      <input type="email" placeholder="" id="emailInput" />
+      <button class="btn"><span data-lang-en>Join</span><span data-lang-he>הצטרפו</span></button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">D'Lu<span>sha's</span></div>
+      <p class="footer-tag">"It's All Good"</p>
+    </div>
+    <div class="footer-col">
+      <h4><span data-lang-en>Explore</span><span data-lang-he>ניווט</span></h4>
+      <a href="#menu"><span data-lang-en>Menu</span><span data-lang-he>תפריט</span></a>
+      <a href="#story"><span data-lang-en>Our Story</span><span data-lang-he>הסיפור</span></a>
+      <a href="#community"><span data-lang-en>Community</span><span data-lang-he>קהילה</span></a>
+      <a href="#reviews"><span data-lang-en>Reviews</span><span data-lang-he>ביקורות</span></a>
+    </div>
+    <div class="footer-col">
+      <h4><span data-lang-en>Find us</span><span data-lang-he>מצאו אותנו</span></h4>
+      <p><span data-lang-en>The promenade, Ganei Tikva</span><span data-lang-he>הטיילת, גני תקווה</span></p>
+      <a href="https://maps.google.com" target="_blank" rel="noopener"><span data-lang-en>Open in Maps</span><span data-lang-he>פתחו בניווט</span></a>
+      <p>Sun–Fri · 7:00–14:00</p>
+    </div>
+    <div class="footer-col">
+      <h4><span data-lang-en>Say hello</span><span data-lang-he>דברו איתנו</span></h4>
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:deelushas@gmail.com">deelushas@gmail.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>D'Lusha's</span> · Ganei Tikva · © <span id="year"></span> · <span data-lang-en>Made with care</span><span data-lang-he>נעשה באהבה</span>
+  </div>
+</footer>
+
+<script>
+  // ---------- LANGUAGE TOGGLE ----------
+  const STR = {
+    en: { dir: 'ltr', lang: 'en', email: 'Your email address' },
+    he: { dir: 'rtl', lang: 'he', email: 'כתובת המייל שלך' }
+  };
+  function setLang(lang) {
+    const html = document.documentElement;
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', STR[lang].dir);
+    document.getElementById('enBtn').classList.toggle('active', lang === 'en');
+    document.getElementById('heBtn').classList.toggle('active', lang === 'he');
+    document.getElementById('emailInput').placeholder = STR[lang].email;
+    try { localStorage.setItem('dlushas-lang', lang); } catch (e) {}
+  }
+  // Restore saved preference (default English — the brand layer)
+  (function () {
+    let saved = 'en';
+    try { saved = localStorage.getItem('dlushas-lang') || 'en'; } catch (e) {}
+    setLang(saved);
+  })();
+
+  // ---------- STICKY NAV ----------
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ---------- MOBILE MENU ----------
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
+  );
+
+  // ---------- MENU TABS (demo) ----------
+  document.querySelectorAll('.menu-tab').forEach(tab =>
+    tab.addEventListener('click', () => {
+      document.querySelector('.menu-tab.active')?.classList.remove('active');
+      tab.classList.add('active');
+    })
+  );
+
+  // ---------- TODAY'S HOURS HIGHLIGHT ----------
+  (function () {
+    const today = new Date().getDay(); // 0 = Sunday
+    const row = document.querySelector('.hours-row[data-day="' + today + '"]');
+    if (row && !row.classList.contains('closed')) row.classList.add('today');
+    else if (row) row.classList.add('today');
+  })();
+
+  // ---------- SCROLL REVEAL ----------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---------- YEAR ----------
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
